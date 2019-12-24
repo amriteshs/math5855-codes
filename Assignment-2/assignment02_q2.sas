@@ -22,9 +22,9 @@ t_squared = n * (mu - mu0)` * inv(cov) * (mu - mu0);
 f_critical = p * (n - 1) * quantile('F', 0.95, p, n - p) / (n - p);
 
 if t_squared <= f_critical then
-	null_hypothesis = 'Not Rejected';
+    null_hypothesis = 'Not Rejected';
 else
-	null_hypothesis = 'Rejected';
+    null_hypothesis = 'Rejected';
 
 print t_squared[label="Hotelling's T^2"];
 print f_critical[label='Critical Value of F'];
@@ -44,9 +44,9 @@ t_squared1 = n1 * (mu1 - mu0)` * inv(cov1) * (mu1 - mu0);
 f_critical1 = p1 * (n1 - 1) * quantile('F', 0.95, p1, n1 - p1) / (n1 - p1);
 
 if t_squared1 <= f_critical1 then
-	null_hypothesis1 = 'Not Rejected';
+    null_hypothesis1 = 'Not Rejected';
 else
-	null_hypothesis1 = 'Rejected';
+    null_hypothesis1 = 'Rejected';
 
 print t_squared1[label="Hotelling's T^2"];
 print f_critical1[label='Critical Value of F'];
