@@ -10,8 +10,8 @@ read all var _num_ into x;
 print 'Q1(i)';
 
 start partial_correlation(cov, j, i);
-	cov_est = cov[j, j] - (cov[j, i] * inv(cov[i, i]) * cov[i, j]);
-	return cov_est[1, 2] / sqrt(cov_est[1, 1] * cov_est[2, 2]);
+    cov_est = cov[j, j] - (cov[j, i] * inv(cov[i, i]) * cov[i, j]);
+    return cov_est[1, 2] / sqrt(cov_est[1, 1] * cov_est[2, 2]);
 finish;
 
 n = nrow(x);
@@ -47,7 +47,7 @@ print ci[label='Confidence Interval' colname={'Lower limit' 'Upper limit'}];
 print 'Q1(iv)';
 
 start r(cov, i, j);
-	return cov[i, j] / sqrt(cov[i, i] * cov[j, j]);
+    return cov[i, j] / sqrt(cov[i, i] * cov[j, j]);
 finish;
 
 r = sqrt(((r(cov, 1, 3) ** 2) + (r(cov, 2, 3) ** 2) - (2 * r(cov, 1, 3) * r(cov, 2, 3) * r(cov, 1, 2))) / (1 - (r(cov, 1, 2) ** 2)));
@@ -57,9 +57,9 @@ f = ((r ** 2) * (n - p_new)) / ((1 - r ** 2) * (p_new - 1));
 f_critical = quantile('F', 0.95, p_new - 1, n - p_new);
 
 if f <= f_critical then
-	null_hypothesis = 'Not Rejected';
+    null_hypothesis = 'Not Rejected';
 else
-	null_hypothesis = 'Rejected';
+    null_hypothesis = 'Rejected';
 
 print r[label='Multiple Correlation Coefficient'];
 print f[label='Test Statistic F'];
@@ -74,9 +74,9 @@ t = r_34 * sqrt((n - 2) / (1 - r_34 ** 2));
 t_critical = quantile('T', 1 - (0.05 / 2), n - 2);
 
 if t <= t_critical then
-	null_hypothesis1 = 'Not Rejected';
+    null_hypothesis1 = 'Not Rejected';
 else
-	null_hypothesis1 = 'Rejected';
+    null_hypothesis1 = 'Rejected';
 
 print t[label='Test Statistic T'];
 print t_critical[label='Critical Value of T'];
