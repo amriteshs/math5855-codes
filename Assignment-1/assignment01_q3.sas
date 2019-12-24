@@ -25,9 +25,9 @@ pvalskew = 1 - probchi(kappa1, dfchi);
 pvalkurt = 2 * (1 - probnorm(abs(kappa2)));
 
 if pvalskew > 0.05 & pvalkurt > 0.05 then
-	hypothesis = 'Accepted';
+    hypothesis = 'Accepted';
 else
-	hypothesis = 'Rejected';
+    hypothesis = 'Rejected';
 
 print pvalskew[label='P-value of Multivariate Skewness'];
 print pvalkurt[label='P-value of Multivariate Kurtosis'];
@@ -67,9 +67,9 @@ t_squared = n * (mu - mu0)` * cov_inv * (mu - mu0);
 f_critical_val = p * (n - 1) * quantile('F', 0.95, p, n - p) / (n - p);
 
 if t_squared <= f_critical_val then
-	null_hypothesis = 'Accepted';
+    null_hypothesis = 'Accepted';
 else
-	null_hypothesis = 'Rejected';
+    null_hypothesis = 'Rejected';
 	
 print cov_inv[label='Inverse of Sample Covariance Matrix'];
 print t_squared[label='Hotelling T^2'];
@@ -90,9 +90,9 @@ t_squared1 = n * (mu1 - mu_test)` * cov_inv1 * (mu1 - mu_test);
 f_critical_val1 = p_new * (n - 1) * quantile('F', 0.95, p_new, n - p_new) / (n - p_new);
 
 if t_squared1 <= f_critical_val1 then
-	null_hypothesis1 = 'Accepted';
+    null_hypothesis1 = 'Accepted';
 else
-	null_hypothesis1 = 'Rejected';
+    null_hypothesis1 = 'Rejected';
 
 print t_squared1[label='Hotelling T^2'];
 print f_critical_val1[label='F Critical Value'];
