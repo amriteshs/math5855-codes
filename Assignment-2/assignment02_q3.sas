@@ -6,7 +6,7 @@ cov = {2.30 0.25 0.47, 0.25 0.60 0.03, 0.47 0.03 0.59};
 print 'Q3(i)';
 
 start d_hat(x, cov, i);
-	return (x[i, ] * inv(cov)) || (-0.5 * x[i, ] * inv(cov) * x[i, ]`);
+    return (x[i, ] * inv(cov)) || (-0.5 * x[i, ] * inv(cov) * x[i, ]`);
 finish;
 
 d1_hat = d_hat(x, cov, 1);
@@ -23,16 +23,16 @@ individuals = {3.00 1.20 1.00, 4.00 1.40 1.32, 1.00 0.50 0.33};
 d_hat_scores = d1_hat` || d2_hat` || d3_hat`;
 
 start individual_group(individuals, scores, i);
-	max_d_index = ((individuals[i, ] || {1}) * scores)[, <:>];
+    max_d_index = ((individuals[i, ] || {1}) * scores)[, <:>];
 	
-	if max_d_index = 1 then
-		group = 'Anxiety State';
-	else if max_d_index = 2 then
-		group = 'Obsession';
-	else if max_d_index = 3 then
-		group = 'Normal';
-	
-	return group;
+    if max_d_index = 1 then
+        group = 'Anxiety State';
+    else if max_d_index = 2 then
+        group = 'Obsession';
+    else if max_d_index = 3 then
+        group = 'Normal';
+
+    return group;
 finish;
 
 group_mary = individual_group(individuals, d_hat_scores, 1);
