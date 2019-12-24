@@ -38,18 +38,18 @@ rho_sq_1234 = r_yx * r_xx_inv * r_xy;
 rho_sq_12 = cor[1, 2] * cor[1, 2];
 
 if rho_sq_1234 > 0.81 then
-	corr_1234 = 'Strong';
+    corr_1234 = 'Strong';
 else if rho_sq_1234 < 0.0625 then
-	corr_1234 = 'Weak';
+    corr_1234 = 'Weak';
 else
-	corr_1234 = 'Moderate';
+    corr_1234 = 'Moderate';
 	
 if rho_sq_12 > 0.81 then
-	corr_12 = 'Strong';
+    corr_12 = 'Strong';
 else if rho_sq_12 < 0.0625 then
-	corr_12 = 'Weak';
+    corr_12 = 'Weak';
 else
-	corr_12 = 'Moderate';
+    corr_12 = 'Moderate';
 
 print rho_sq_1234[label='Multiple Correlation Coefficient for (X1) | (X2, X3, X4)'];
 print corr_1234[label='Nature of Correlation Between (X1) and (X2, X3, X4)'];
